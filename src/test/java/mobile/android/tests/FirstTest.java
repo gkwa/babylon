@@ -1,10 +1,13 @@
 package mobile.android.tests;
 
 import io.appium.java_client.AppiumDriver;
+
 import java.io.File;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
@@ -13,6 +16,7 @@ import org.testng.annotations.Test;
 
 public class FirstTest {
 	private AppiumDriver driver;
+	private WebDriver webDriver;
 	
 	
 	@BeforeTest
@@ -29,6 +33,9 @@ public class FirstTest {
 		 capabilities.setCapability("appPackage", "com.babylon");
 		 capabilities.setCapability("appActivity", "activity.AuthorizationActivity");
 		 driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		 webDriver = new FirefoxDriver();
+		 
+		 webDriver.get("https://www.fitbit.com");
 	}
 	
 	
